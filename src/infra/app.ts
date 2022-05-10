@@ -2,8 +2,10 @@ import 'reflect-metadata';
 import 'dotenv/config';
 import express from 'express';
 import 'express-async-errors';
-import routes from './routes';
 import cors from 'cors';
+
+import routes from './routes';
+import './containers';
 
 const app = express();
 

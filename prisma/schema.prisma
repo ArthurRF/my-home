@@ -39,7 +39,24 @@ model City {
   created_at DateTime @default(now()) @db.Timestamp
   updated_at DateTime @default(now()) @db.Timestamp
 
-  state State? @relation(fields: [state_id], references: [id])
+  state     State?    @relation(fields: [state_id], references: [id])
+  addresses Address[]
 
   @@map("cities")
+}
+
+model Address {
+  id              String   @id @default(uuid()) @db.Uuid
+  city_id         Int      @db.Integer
+  district        String   @db.VarChar(150)
+  street          String   @db.VarChar(150)
+  number          Int?     @db.Integer
+  complement      String?  @db.VarChar(150)
+  reference_point String?  @db.VarChar(150)
+  created_at      DateTime @default(now()) @db.Timestamp
+  updated_at      DateTime @default(now()) @db.Timestamp
+
+  city City? @relation(fields: [city_id], references: [id])
+
+  @@map("addresses")
 }

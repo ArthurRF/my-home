@@ -19,3 +19,27 @@ model PropertyType {
 
   @@map("property_types")
 }
+
+model State {
+  id         Int      @id @default(autoincrement()) @db.Integer
+  name       String   @db.VarChar(75)
+  uf         String   @db.Char(2)
+  created_at DateTime @default(now()) @db.Timestamp
+  updated_at DateTime @default(now()) @db.Timestamp
+
+  cities City[]
+
+  @@map("states")
+}
+
+model City {
+  id         Int      @id @default(autoincrement()) @db.Integer
+  name       String   @db.VarChar(120)
+  state_id   Int      @db.Integer
+  created_at DateTime @default(now()) @db.Timestamp
+  updated_at DateTime @default(now()) @db.Timestamp
+
+  state State? @relation(fields: [state_id], references: [id])
+
+  @@map("cities")
+}

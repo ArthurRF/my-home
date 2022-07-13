@@ -3,4 +3,5 @@ import { ICreatePropertyTypeDTO } from 'modules/properties/dtos/ICreatePropertyT
 
 export interface IPropertyTypesRepository {
   create(data: ICreatePropertyTypeDTO): Promise<PropertyType>;
+  list(): Promise<PropertyType[]>;
 }

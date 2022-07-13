@@ -21,4 +21,7 @@ export class PropertyTypesRepository implements IPropertyTypesRepository {
     });
   }
 
+  async list(): Promise<PropertyType[]> {
+    return prisma.propertyType.findMany();
+  }
 }

@@ -11,7 +11,7 @@ export class CreatePropertyTypeController {
       CreatePropertyTypeService
     );
 
-    if(!slug || !name || !description) {
+    if (!slug || !name || !description) {
       return res.status(400).json({
         error: 'Missing required fields'
       });

@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "states" (
+    "id" SERIAL NOT NULL,
+    "name" VARCHAR(120) NOT NULL,
+    "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "states_pkey" PRIMARY KEY ("id")
+);

@@ -9,8 +9,11 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/infra/server.ts"
   },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed.ts"
+  },
   "dependencies": {
-    "@prisma/client": "^3.13.0",
+    "@prisma/client": "^4.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "eslint": "^8.14.0",
@@ -33,7 +36,7 @@
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-import-helpers": "^1.2.1",
-    "prisma": "^3.13.0",
+    "prisma": "^4.0.0",
     "tsconfig-paths": "^4.0.0",
     "typescript": "^4.6.4"
   }

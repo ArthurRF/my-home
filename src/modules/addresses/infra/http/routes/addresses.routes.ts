@@ -3,17 +3,21 @@ import { container } from "tsyringe";
 
 import { CreateAddressController } from "@modules/addresses/controllers/CreateAddressController";
 import { ListAddressesController } from "@modules/addresses/controllers/ListAddressesController";
+import { UpdateAddressController } from "@modules/addresses/controllers/UpdateAdressController";
 
 const addressesRoutes = Router();
 
 const createAddressController = container.resolve(
   CreateAddressController
 );
-const listPropertyTypesController = container.resolve(
+const listAddressesController = container.resolve(
   ListAddressesController
+);
+const updateAdressController = container.resolve(
+  UpdateAddressController
 );
 
 addressesRoutes.post('/create', createAddressController.handle);
-addressesRoutes.get('/list', listPropertyTypesController.handle);
-
+addressesRoutes.get('/list', listAddressesController.handle);
+addressesRoutes.post('/update', updateAdressController.handle);
 export { addressesRoutes };

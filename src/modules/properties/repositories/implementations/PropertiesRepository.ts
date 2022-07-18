@@ -36,4 +36,11 @@ export class PropertiesRepository implements IPropertiesRepository {
       }
     });
   }
+
+  async list(): Promise<Property[]> {
+    return prisma.property.findMany({
+      where: {active: true},
+      include: {address: true}
+    })
+  }
 }

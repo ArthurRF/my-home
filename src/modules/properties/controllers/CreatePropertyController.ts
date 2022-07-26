@@ -4,7 +4,7 @@ import { CreatePropertyService } from '@modules/properties/services/CreateProper
 
 @injectable()
 export class CreatePropertyController {
-  async handle(req: Request, res: Response) {
+  async handle(req: Request, res: Response): Promise<Response> {
     const { name, description, price, size, negociation_type, bedrooms, suits, bathrooms, garages, property_type_slug, address_id } = req.body;
 
     const createPropertyService = container.resolve(

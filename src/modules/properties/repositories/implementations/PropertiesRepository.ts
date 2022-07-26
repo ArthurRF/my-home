@@ -4,6 +4,7 @@ import prisma from "../../../../infra/prisma";
 import { Property } from "@prisma/client";
 import { ICreatePropertyDTO } from "../../dtos/ICreatePropertyDTO";
 import { IPropertiesRepository } from "../interfaces/IPropertiesRepository";
+import { ICreatePropertyImageDTO } from "@modules/properties/dtos/ICreatePropertyImageDTO";
 
 @injectable()
 export class PropertiesRepository implements IPropertiesRepository {
@@ -42,5 +43,17 @@ export class PropertiesRepository implements IPropertiesRepository {
       where: {active: true},
       include: {address: true}
     })
+  }
+
+  async createImage({
+    property_id,
+    link,
+  }: ICreatePropertyImageDTO): Promise<void> {
+    await prisma.propertyImage.create({
+      data: {
+        property_id,
+        link,
+      }
+    });
   }
 }

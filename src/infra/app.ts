@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import routes from './routes';
 import './containers';
+import '@shared/container';
 
 const app = express();
 
